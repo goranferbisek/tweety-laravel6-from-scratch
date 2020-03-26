@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Tweet;
-
 class HomeController extends Controller
 {
     public function __construct()
@@ -14,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home', [
-            'tweets' => Tweet::all()
+            'tweets' => auth()->user()->timeline()
         ]);
     }
 }
