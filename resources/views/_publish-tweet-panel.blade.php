@@ -6,7 +6,7 @@
         <hr class="my-4">
 
         <footer class="flex justify-between">
-            <img src="https://i.pravatar.cc/40"
+            <img src="{{ auth()->user()->avatar }}"
                 alt=""
                 class="rounded-full mr-2">
             <button type="submit"

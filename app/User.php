@@ -37,6 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getAvatarAttribute()
+    {
+        // custom accessor -> this will be available as user()->avatar
+        return "https://i.pravatar.cc/50?u=" . $this->email;
+    }
+
     public function timeline()
     {
         return Tweet::where('user_id', $this->id)->latest()->get();
