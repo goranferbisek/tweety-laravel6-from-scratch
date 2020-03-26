@@ -5,12 +5,9 @@
             class="rounded-full mr-2">
     </div>
     <div>
-        <h5 class="text-bold mb-4">Jon Doe</h5>
+        <h5 class="text-bold mb-4">{{ $tweet->user->name }}</h5>
         <p class="text-small">
-            Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Tempore ratione vitae numquam, ipsa
-                reprehenderit sapiente unde qui consequuntur cum.
-                Vel.
+            {{ $tweet->body }}
         </p>
     </div>
 </div>
