@@ -67,6 +67,12 @@ class User extends Authenticatable
             User::class,
             'follows', // expects user_user table because of naming convention
             'user_id',
-            'following_user_id');
+            'following_user_id'
+        );
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
     }
 }
