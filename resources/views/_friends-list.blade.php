@@ -7,7 +7,10 @@
             >
                 <img src="{{ $user->avatar }}"
                     alt=""
-                    class="rounded-full mr-2">
+                    class="rounded-full mr-2"
+                    width="40"
+                    heigth="40"
+                >
                 {{ $user->name }}
             </a>
         </li>

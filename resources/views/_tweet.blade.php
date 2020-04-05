@@ -4,6 +4,8 @@
             <img src="{{ $tweet->user->avatar }}"
                 alt=""
                 class="rounded-full mr-2"
+                width="50"
+                heigth="50"
             >
         </a>
     </div>

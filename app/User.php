@@ -39,7 +39,7 @@ class User extends Authenticatable
     public function getAvatarAttribute()
     {
         // custom accessor -> this will be available as user()->avatar
-        return "https://i.pravatar.cc/50?u=" . $this->email;
+        return "https://i.pravatar.cc/200?u=" . $this->email;
     }
 
     public function timeline()
