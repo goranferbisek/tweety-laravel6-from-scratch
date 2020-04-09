@@ -9,6 +9,20 @@ trait Followable
         return $this->follows()->save($user);
     }
 
+    public function unfollow(User $user)
+    {
+        return $this->follows()->detach($user);
+    }
+
+    public function toggleFollow(User $user)
+    {
+        if ($this->following($user)) {
+            return $this->unfollow($user);
+        }
+
+        return $this->follow($user);
+    }
+
     public function follows()
     {
         return $this->belongsToMany(
