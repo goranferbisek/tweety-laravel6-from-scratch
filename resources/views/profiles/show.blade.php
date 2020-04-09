@@ -18,13 +18,8 @@
                     class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2">
                     Edit profile
                 </a>
-                <form method="POST" action="/profiles/{{ $user->name }}/follow">
-                    @csrf
-                    <button type="submit"
-                        class="bg-blue-500 rounded-full shadow py-2 px-4 text-white text-xs">
-                        {{ auth()->user()->following($user) ? 'Unfollow me' : 'Follow me' }}
-                    </a>
-                </form>
+                @component('components.follow-button', ['user' => $user])
+                @endcomponent
             </div>
         </div>
 
