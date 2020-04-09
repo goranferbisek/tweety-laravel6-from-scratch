@@ -1,11 +1,20 @@
 @component('components.app')
     <header class="mb-6 relative">
-        <img src="/images/default-profile-banner.jpg"
-            alt="Profile banner"
-            class="mb-2"
-        >
+        <div class="relative">
+            <img src="/images/default-profile-banner.jpg"
+                alt="Profile banner"
+                class="mb-2"
+            >
 
-        <div class="flex justify-between items-center mb-4">
+            <img src="{{ $user->avatar }}"
+                    alt="User avatar"
+                    class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
+                    style="left: 50%"
+                    width="150px"
+            >
+        </div>
+
+        <div class="flex justify-between items-center mb-6">
             <div>
                 <h2 class="font-bold text-2xl mb-0">{{ $user->name }}</h2>
                 <p class="text-sm">
@@ -27,13 +36,6 @@
             amet consectetur adipisicing elit. Unde beatae a nisi veritatis
              ullam quod illo libero qui eos fugiat.
         </p>
-
-        <img src="{{ $user->avatar }}"
-                alt="User avatar"
-                class="rounded-full mr-2 absolute"
-                style="width: 150px; left: calc(50% - 75px); top: 138px"
-        >
-
     </header>
 
     @include('_timeline', [
