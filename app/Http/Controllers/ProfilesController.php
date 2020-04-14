@@ -19,7 +19,6 @@ class ProfilesController extends Controller
 
     public function update(User $user)
     {
-
         $attributes = request()->validate([
             'username' => [
                 'string',
@@ -29,6 +28,7 @@ class ProfilesController extends Controller
                 Rule::unique('users')->ignore($user)
             ],
             'name' => ['string', 'required', 'max:255'],
+            'avatar' => ['required', 'file'],
             'email' => [
                 'string',
                 'required',
@@ -38,6 +38,9 @@ class ProfilesController extends Controller
             ],
             'password' => ['string', 'required', 'min:8,', 'max:255', 'confirmed']
             ]);
+
+        // path to image
+        $attributes['avatar'] = request('avatar')->store('avatars');
 
         $user->update($attributes);
 
