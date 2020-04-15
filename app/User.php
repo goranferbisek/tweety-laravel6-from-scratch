@@ -36,10 +36,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // custom accessor -> this will be available as user()->avatar
     public function getAvatarAttribute($value)
     {
-        // custom accessor -> this will be available as user()->avatar
         return asset($value);
+    }
+
+    // custom mutator - value will be piped trough here when we set the password
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline()
