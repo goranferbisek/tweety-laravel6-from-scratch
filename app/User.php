@@ -39,7 +39,7 @@ class User extends Authenticatable
     // custom accessor -> this will be available as user()->avatar
     public function getAvatarAttribute($value)
     {
-        return asset($value);
+        return asset($value?: '/images/default-avatar.jpg');
     }
 
     // custom mutator - value will be piped trough here when we set the password
