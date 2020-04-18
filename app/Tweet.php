@@ -15,7 +15,7 @@ class Tweet extends Model
 
     public function like($user = null, $liked = true)
     {
-        $this->likes->updateOrCreate([
+        $this->likes()->updateOrCreate([
             'user_id' => $user ? $user->id : auth()->id()
         ], [
             'liked'=> $liked
