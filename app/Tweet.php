@@ -22,9 +22,9 @@ class Tweet extends Model
         ]);
     }
 
-    public function dislike()
+    public function dislike($user = null)
     {
-        return $this->like(false);
+        return $this->like($user, false);
     }
 
     public function likes()
