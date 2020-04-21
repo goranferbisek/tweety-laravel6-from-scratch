@@ -30,6 +30,6 @@
         {{ $slot }}
     </div>
     <!-- makes navigation faster by replacing content of the body with AJAX -->
-    <script src="http:://unpkg.com/turbolinks"></script>
+    <script src="http://unpkg.com/turbolinks"></script>
 </body>
 </html>
