@@ -3,7 +3,7 @@
         <div class="relative">
             <img src="{{ $user->banner }}"
                 alt="Profile banner"
-                class="rounded-lg mb-2"
+                class="rounded-lg mb-2 h-48 object-cover w-full"
             >
 
             <img src="{{ $user->avatar }}"
