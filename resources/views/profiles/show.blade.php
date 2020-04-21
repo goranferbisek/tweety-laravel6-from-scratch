@@ -1,9 +1,9 @@
 @component('components.app')
     <header class="mb-6 relative">
         <div class="relative">
-            <img src="/images/default-profile-banner.jpg"
+            <img src="{{ $user->banner }}"
                 alt="Profile banner"
-                class="mb-2"
+                class="rounded-lg mb-2"
             >
 
             <img src="{{ $user->avatar }}"

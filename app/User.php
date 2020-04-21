@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username','avatar', 'name', 'email', 'password',
+        'username','avatar', 'banner', 'name', 'email', 'password',
     ];
 
     /**
@@ -39,7 +39,12 @@ class User extends Authenticatable
     // custom accessor -> this will be available as user()->avatar
     public function getAvatarAttribute($value)
     {
-        return asset($value?: '/images/default-avatar.jpg');
+        return asset($value ?: '/images/default-avatar.jpg');
+    }
+
+    public function getBannerAttribute($value)
+    {
+        return asset($value ?: '/images/default-banner.jpg');
     }
 
     // custom mutator - value will be piped trough here when we set the password
