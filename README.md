@@ -15,4 +15,4 @@ The features are discussed in the [final episode](https://laracasts.com/series/l
 :x: When writing a new tweet, display the number of remaining characters they're allowed.\
 :x: Allow tweets to be deleted.\
 :x: Add support for mentions and notifications.\
-:x: Work on responsiveness.\
+:x: Work on responsiveness.
