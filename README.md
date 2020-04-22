@@ -1,6 +1,6 @@
 # A Twitter clone application in Laravel
 
-This is an [Laravel](https://laravel.com) application called Tweety. It is an extension of the final project of the Laravel 6 From Scratch series at [Laracasts](https://laracasts.com/series/laravel-6-from-scratch).
+This is a [Laravel](https://laravel.com) application called Tweety. It is an extension of the final project of the Laravel 6 From Scratch series at [Laracasts](https://laracasts.com/series/laravel-6-from-scratch).
 
 ## Added features
 
