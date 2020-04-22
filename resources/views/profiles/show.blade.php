@@ -35,9 +35,8 @@
             </div>
         </div>
 
-        <p class="text-sm">This it the user description. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Unde beatae a nisi veritatis
-             ullam quod illo libero qui eos fugiat.
+        <p class="text-sm">
+            {{ $user->description ?: 'This user has no description yet.'}}
         </p>
     </header>
 
