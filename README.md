@@ -13,6 +13,6 @@ The features are discussed in the [final episode](https://laracasts.com/series/l
 :x: Add a pop-up flash message when a user publishes a tweet or follows someone.\
 :x: Consider adding [Laravel Livewire](https://laravel-livewire.com) to allow for more interactive forms.\
 :x: When writing a new tweet, display the number of remaining characters they're allowed.\
-:x: Allow tweets to be deleted.\
+:heavy_check_mark: Allow tweets to be deleted. (only for authorized users)\
 :x: Add support for mentions and notifications.\
 :x: Work on responsiveness.
