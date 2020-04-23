@@ -9,12 +9,18 @@
             >
         </a>
     </div>
-    <div>
-        <h5 class="text-bold mb-4">
-            <a href="{{ route('profile', $tweet->user) }}">
-                {{ $tweet->user->name }}
-            </a>
-        </h5>
+    <div class="w-full">
+        <div class="flex justify-between">
+            <h5 class="text-bold mb-4">
+                <a href="{{ route('profile', $tweet->user) }}">
+                    {{ $tweet->user->name }}
+                </a>
+            </h5>
+
+            @component('components.delete-button', ['tweet' => $tweet])
+            @endcomponent
+        </div>
+
         <p class="text-sm mb-3">
             {{ $tweet->body }}
         </p>
