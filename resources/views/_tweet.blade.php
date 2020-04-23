@@ -17,8 +17,10 @@
                 </a>
             </h5>
 
-            @component('components.delete-button', ['tweet' => $tweet])
-            @endcomponent
+            @can('delete', $tweet)
+                @component('components.delete-button', ['tweet' => $tweet])
+                @endcomponent
+            @endcan
         </div>
 
         <p class="text-sm mb-3">
