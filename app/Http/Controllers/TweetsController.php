@@ -24,4 +24,9 @@ class TweetsController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function destroy()
+    {
+        dd('Delete tweet');
+    }
 }
