@@ -20,7 +20,8 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/tweets', 'TweetsController@index')->name('home');
     Route::post('/tweets', 'TweetsController@store');
-    Route::delete('/tweets/{tweet}', 'TweetsController@destroy');
+    Route::delete('/tweets/{tweet}', 'TweetsController@destroy')
+        ->middleware('can:delete,tweet');
 
     Route::post('/tweets/{tweet}/like', 'TweetLikesController@store');
     Route::delete('/tweets/{tweet}/like', 'TweetLikesController@destroy');
