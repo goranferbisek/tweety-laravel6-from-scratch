@@ -23,6 +23,10 @@ trait Likable
 
     public function like($user = null, $liked = true)
     {
+        // if tweet is already liked by this user, delete a like
+          // identify if current user liked this tweet
+          // delete if liked column is equal as current action
+        // else - like or dislike tweet
         $this->likes()->updateOrCreate([
             'user_id' => $user ? $user->id : auth()->id()
         ], [
