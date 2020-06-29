@@ -38,7 +38,11 @@ trait Likable
 
     public function dislike($user = null)
     {
-        return $this->like($user, false);
+        if ($this->isDislikedBy($user)) {
+            $this->likes()->where('tweet_id', $this->id)->delete();
+        } else {
+            return $this->like($user, false);
+        }
     }
 
     public function isLikedBy(User $user)
