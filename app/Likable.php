@@ -23,11 +23,9 @@ trait Likable
 
     public function like($user = null, $liked = true)
     {
-        // if tweet is already liked by this user, delete a like
         if ($this->isLikedBy($user)) {
-            $this->likes()->where('tweet_id', $this->id)->delete();
+            $this->deleteLike();
         } else {
-            // else - like or dislike tweet
             $this->likes()->updateOrCreate([
                 'user_id' => $user ? $user->id : auth()->id()
             ], [
@@ -39,7 +37,7 @@ trait Likable
     public function dislike($user = null)
     {
         if ($this->isDislikedBy($user)) {
-            $this->likes()->where('tweet_id', $this->id)->delete();
+            $this->deleteLike();
         } else {
             $this->like($user, false);
         }
@@ -66,5 +64,9 @@ trait Likable
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function deleteLike() {
+        $this->likes()->where('tweet_id', $this->id)->delete();
     }
 }
