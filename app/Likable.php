@@ -41,7 +41,7 @@ trait Likable
         if ($this->isDislikedBy($user)) {
             $this->likes()->where('tweet_id', $this->id)->delete();
         } else {
-            return $this->like($user, false);
+            $this->like($user, false);
         }
     }
 
