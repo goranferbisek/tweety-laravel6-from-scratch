@@ -9,7 +9,7 @@ The features are discussed in the [final episode](https://laracasts.com/series/l
 ### List of added features
 :heavy_check_mark: The profile page banner image and description are hard-coded. Make these dynamic for each user.\
 :x: Add the ability to attach an image when publishing a tweet.\
-:x: There is currently no way to unlike a tweet. Add the ability to toggle a like.\
+:heavy_check_mark: There is currently no way to unlike a tweet. Add the ability to toggle a like.\
 :x: Add a pop-up flash message when a user publishes a tweet or follows someone.\
 :x: Consider adding [Laravel Livewire](https://laravel-livewire.com) to allow for more interactive forms.\
 :x: When writing a new tweet, display the number of remaining characters they're allowed.\
