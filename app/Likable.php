@@ -32,7 +32,7 @@ trait Likable
 
     public function dislike($user = null)
     {
-        return $this->like($user, false);
+        $this->like($user, false);
     }
 
     public function isLikedBy(User $user)
@@ -56,5 +56,9 @@ trait Likable
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function deleteLike() {
+        $this->likes()->where('user_id', auth()->id())->delete();
     }
 }
