@@ -23,24 +23,16 @@ trait Likable
 
     public function like($user = null, $liked = true)
     {
-        if ($this->isLikedBy($user)) {
-            $this->deleteLike();
-        } else {
-            $this->likes()->updateOrCreate([
-                'user_id' => $user ? $user->id : auth()->id()
-            ], [
-                'liked' => $liked
-            ]);
-        }
+        $this->likes()->updateOrCreate([
+            'user_id' => $user ? $user->id : auth()->id()
+        ], [
+            'liked' => $liked
+        ]);
     }
 
     public function dislike($user = null)
     {
-        if ($this->isDislikedBy($user)) {
-            $this->deleteLike();
-        } else {
-            $this->like($user, false);
-        }
+        $this->like($user, false);
     }
 
     public function isLikedBy(User $user)
