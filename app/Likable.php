@@ -59,6 +59,6 @@ trait Likable
     }
 
     public function deleteLike() {
-        $this->likes()->where('tweet_id', $this->id)->delete();
+        $this->likes()->where('user_id', auth()->id())->delete();
     }
 }
