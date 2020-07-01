@@ -81,6 +81,7 @@ return [
         public_path('storage') => storage_path('app/public'),
         public_path('avatars') => storage_path('app/public/avatars'),
         public_path('banners') => storage_path('app/public/banners'),
+        public_path('tweets') => storage_path('app/public/tweets'),
     ],
 
 ];

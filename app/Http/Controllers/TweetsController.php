@@ -15,12 +15,21 @@ class TweetsController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate(['body' => 'required|max:255']);
+        $attributes = request()->validate([
+            'body' => 'required|max:255',
+            'image' => ['image']
+        ]);
+
+
+        if (request('image')) {
+            $attributes['image'] = request('image')->store('tweets');
+        }
 
         Tweet::create([
             'user_id' => auth()->id(),
-            'body' => $attributes['body']
+            'body' => $attributes['body'],
         ]);
+
 
         return redirect()->route('home');
     }
