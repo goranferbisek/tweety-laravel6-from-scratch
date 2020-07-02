@@ -28,6 +28,7 @@ class TweetsController extends Controller
         Tweet::create([
             'user_id' => auth()->id(),
             'body' => $attributes['body'],
+            'image' => $attributes['image']
         ]);
 
 
