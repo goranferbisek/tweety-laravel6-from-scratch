@@ -22,7 +22,7 @@ class TweetsController extends Controller
 
 
         if (request('image')) {
-            $attributes['image'] = request('image')->store('tweets');
+            $attributes['image'] = request('image')->store('tweet-img');
         }
 
         Tweet::create([
