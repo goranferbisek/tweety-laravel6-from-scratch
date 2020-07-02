@@ -28,7 +28,7 @@
         </p>
 
         @isset($tweet->image)
-            <img src="{{ $tweet->image }}" alt="Tweet image" style="width: 100px;">
+            <img src="{{ $tweet->image }}" alt="Tweet image" class="w-full mb-4">
         @endisset
 
         @component('components.like-buttons', ['tweet' => $tweet])
