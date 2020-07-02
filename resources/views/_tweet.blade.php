@@ -27,7 +27,9 @@
             {{ $tweet->body }}
         </p>
 
-        <img src="{{ $tweet->image }}" alt="Tweet image" style="width: 100px;">
+        @isset($tweet->image)
+            <img src="{{ $tweet->image }}" alt="Tweet image" style="width: 100px;">
+        @endisset
 
         @component('components.like-buttons', ['tweet' => $tweet])
         @endcomponent
