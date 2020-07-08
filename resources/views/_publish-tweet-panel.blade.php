@@ -9,7 +9,6 @@
             required
             autofocus
         ></textarea>
-        <input type="file" name="image">
 
         <hr class="my-4">
 
