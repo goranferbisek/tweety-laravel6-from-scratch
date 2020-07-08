@@ -9,6 +9,7 @@
             required
             autofocus
         ></textarea>
+        <div class="cursor-pointer">click to upload or drag image here</div>
 
         <hr class="my-4">
 
