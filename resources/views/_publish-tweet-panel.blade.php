@@ -9,7 +9,10 @@
             required
             autofocus
         ></textarea>
-        <div class="cursor-pointer">click to upload or drag image here</div>
+        <div class="cursor-pointer drop-zone text-center">
+            click to upload or drag image here
+            <input type="file" name="image" class="hidden tweet-image">
+        </div>
 
         <hr class="my-4">
 
