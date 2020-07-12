@@ -37346,6 +37346,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var dropZone = document.querySelector('.drop-zone');
 var imageInput = document.querySelector('.tweet-image');
+dropZone.addEventListener('click', function (e) {
+  imageInput.click();
+});
 dropZone.addEventListener('dragover', function (e) {
   e.preventDefault();
   dropZone.classList.add('font-bold');

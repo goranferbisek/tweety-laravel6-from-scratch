@@ -10,6 +10,10 @@ require('./bootstrap');
 let dropZone = document.querySelector('.drop-zone');
 let imageInput = document.querySelector('.tweet-image');
 
+dropZone.addEventListener('click', e => {
+    imageInput.click();
+});
+
 dropZone.addEventListener('dragover', e => {
     e.preventDefault();
     dropZone.classList.add('font-bold');
@@ -21,7 +25,6 @@ dropZone.addEventListener('drop', e => {
     if (e.dataTransfer.files.length) {
         imageInput.files = e.dataTransfer.files;
         console.log(imageInput.files[0]);
-
     }
 });
 
