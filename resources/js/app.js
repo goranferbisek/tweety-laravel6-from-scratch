@@ -7,8 +7,8 @@
 require('./bootstrap');
 
 
-let dropZone = document.querySelector('.drop-zone');
-let imageInput = document.querySelector('.tweet-image');
+const dropZone = document.querySelector('.drop-zone');
+const imageInput = document.querySelector('.tweet-image');
 
 dropZone.addEventListener('click', e => {
     imageInput.click();
