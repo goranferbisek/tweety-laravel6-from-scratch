@@ -37377,7 +37377,6 @@ publishForm.addEventListener('submit', function (e) {
     location.reload();
   })["catch"](function (error) {
     console.log(error);
-    y;
   });
 });
 
