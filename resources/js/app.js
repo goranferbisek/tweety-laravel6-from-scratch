@@ -1,4 +1,4 @@
-/**
+ /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
@@ -6,27 +6,51 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+const dropZone = document.querySelector('.drop-zone');
+const publishForm = document.querySelector('#publish-form');
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+const tweetText = document.querySelector('.tweet-body');
+const imageInput = document.querySelector('.tweet-image');
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+dropZone.addEventListener('click', e => {
+    imageInput.click();
+});
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+dropZone.addEventListener('dragover', e => {
+    e.preventDefault();
+    dropZone.classList.add('font-bold');
+});
 
-const app = new Vue({
-    el: '#app',
+dropZone.addEventListener('drop', e => {
+    e.preventDefault();
+
+    if (e.dataTransfer.files.length) {
+        imageInput.files = e.dataTransfer.files;
+        console.log(imageInput.files[0]);
+    }
+});
+
+['dragleave', 'dragend'].forEach(type => {
+    dropZone.addEventListener(type, e => {
+        dropZone.classList.remove('font-bold');
+    });
+});
+
+
+
+publishForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    let data = new FormData();
+    data.append('body', tweetText.value);
+    data.append('image', imageInput.files[0]);
+
+    axios.post('/tweets', data)
+        .then(function (response) {
+            location.reload();
+        })
+        .catch(function (error) {
+            console.log(error);y
+        });
 });

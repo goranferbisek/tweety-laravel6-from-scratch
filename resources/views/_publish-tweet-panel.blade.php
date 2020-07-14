@@ -1,15 +1,19 @@
 <div class="border border-blue-400 rounded-lg py-6 px-8 mb-8">
-    <form method="POST" action="/tweets" enctype="multipart/form-data" >
+    {{-- <form method="POST" action="/tweets" enctype="multipart/form-data" > --}}
+    <form class="form" id="publish-form">
         @csrf
 
         <textarea
             name="body"
-            class="w-full"
+            class="w-full tweet-body"
             placeholder="What's up doc?"
             required
             autofocus
         ></textarea>
-        <input type="file" name="image">
+        <div class="cursor-pointer drop-zone text-center">
+            click to upload or drag image here
+            <input type="file" name="image" class="hidden tweet-image">
+        </div>
 
         <hr class="my-4">
 
