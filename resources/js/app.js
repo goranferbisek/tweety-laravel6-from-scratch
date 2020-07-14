@@ -8,6 +8,9 @@ require('./bootstrap');
 
 
 const dropZone = document.querySelector('.drop-zone');
+const publishForm = document.querySelector('#publish-form');
+
+const tweetText = document.querySelector('.tweet-body');
 const imageInput = document.querySelector('.tweet-image');
 
 dropZone.addEventListener('click', e => {
@@ -32,4 +35,22 @@ dropZone.addEventListener('drop', e => {
     dropZone.addEventListener(type, e => {
         dropZone.classList.remove('font-bold');
     });
+});
+
+
+
+publishForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    let data = new FormData();
+    data.append('body', tweetText.value);
+    data.append('image', imageInput.files[0]);
+
+    axios.post('/tweets', data)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 });

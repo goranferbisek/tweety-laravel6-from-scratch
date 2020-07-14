@@ -37345,6 +37345,8 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 var dropZone = document.querySelector('.drop-zone');
+var publishForm = document.querySelector('#publish-form');
+var tweetText = document.querySelector('.tweet-body');
 var imageInput = document.querySelector('.tweet-image');
 dropZone.addEventListener('click', function (e) {
   imageInput.click();
@@ -37364,6 +37366,17 @@ dropZone.addEventListener('drop', function (e) {
 ['dragleave', 'dragend'].forEach(function (type) {
   dropZone.addEventListener(type, function (e) {
     dropZone.classList.remove('font-bold');
+  });
+});
+publishForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var data = new FormData();
+  data.append('body', tweetText.value);
+  data.append('image', imageInput.files[0]);
+  axios.post('/tweets', data).then(function (response) {
+    console.log(response);
+  })["catch"](function (error) {
+    console.log(error);
   });
 });
 
