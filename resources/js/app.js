@@ -49,6 +49,7 @@ publishForm.addEventListener('submit', e => {
     axios.post('/tweets', data)
         .then(function (response) {
             console.log(response);
+            location.reload();
         })
         .catch(function (error) {
             console.log(error);

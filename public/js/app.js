@@ -37375,6 +37375,7 @@ publishForm.addEventListener('submit', function (e) {
   data.append('image', imageInput.files[0]);
   axios.post('/tweets', data).then(function (response) {
     console.log(response);
+    location.reload();
   })["catch"](function (error) {
     console.log(error);
   });
