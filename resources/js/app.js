@@ -51,6 +51,6 @@ publishForm.addEventListener('submit', e => {
             location.reload();
         })
         .catch(function (error) {
-            console.log(error);
+            console.log(error.response.data);
         });
 });

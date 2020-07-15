@@ -37376,7 +37376,7 @@ publishForm.addEventListener('submit', function (e) {
   axios.post('/tweets', data).then(function (response) {
     location.reload();
   })["catch"](function (error) {
-    console.log(error);
+    console.log(error.response.data);
   });
 });
 
