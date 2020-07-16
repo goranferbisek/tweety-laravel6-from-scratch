@@ -37360,7 +37360,6 @@ dropZone.addEventListener('drop', function (e) {
 
   if (e.dataTransfer.files.length) {
     imageInput.files = e.dataTransfer.files;
-    console.log(imageInput.files[0]);
   }
 });
 ['dragleave', 'dragend'].forEach(function (type) {
@@ -37372,7 +37371,11 @@ publishForm.addEventListener('submit', function (e) {
   e.preventDefault();
   var data = new FormData();
   data.append('body', tweetText.value);
-  data.append('image', imageInput.files[0]);
+
+  if (imageInput.files.length) {
+    data.append('image', imageInput.files[0]);
+  }
+
   axios.post('/tweets', data).then(function (response) {
     location.reload();
   })["catch"](function (error) {

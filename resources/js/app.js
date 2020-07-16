@@ -27,7 +27,6 @@ dropZone.addEventListener('drop', e => {
 
     if (e.dataTransfer.files.length) {
         imageInput.files = e.dataTransfer.files;
-        console.log(imageInput.files[0]);
     }
 });
 
@@ -44,7 +43,10 @@ publishForm.addEventListener('submit', e => {
 
     let data = new FormData();
     data.append('body', tweetText.value);
-    data.append('image', imageInput.files[0]);
+
+    if (imageInput.files.length) {
+        data.append('image', imageInput.files[0]);
+    }
 
     axios.post('/tweets', data)
         .then(function (response) {
