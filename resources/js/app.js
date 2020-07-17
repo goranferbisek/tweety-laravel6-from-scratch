@@ -9,17 +9,12 @@ require('./bootstrap');
 
 const dropZone = document.querySelector('.drop-zone');
 const publishForm = document.querySelector('#publish-form');
-
-const tweetText = document.querySelector('.tweet-body');
+const uploadInfo = document.querySelector('.upload-info');
 const imageInput = document.querySelector('.tweet-image');
-
-dropZone.addEventListener('click', e => {
-    imageInput.click();
-});
 
 dropZone.addEventListener('dragover', e => {
     e.preventDefault();
-    dropZone.classList.add('font-bold');
+    uploadInfo.classList.add('font-bold');
 });
 
 dropZone.addEventListener('drop', e => {
@@ -27,12 +22,14 @@ dropZone.addEventListener('drop', e => {
 
     if (e.dataTransfer.files.length) {
         imageInput.files = e.dataTransfer.files;
+        uploadInfo.innerHTML = 'image uploaded';
+        uploadInfo.classList.remove('font-bold');
     }
 });
 
 ['dragleave', 'dragend'].forEach(type => {
     dropZone.addEventListener(type, e => {
-        dropZone.classList.remove('font-bold');
+        uploadInfo.classList.remove('font-bold');
     });
 });
 
@@ -42,7 +39,7 @@ publishForm.addEventListener('submit', e => {
     e.preventDefault();
 
     let data = new FormData();
-    data.append('body', tweetText.value);
+    data.append('body', dropZone.value);
 
     if (imageInput.files.length) {
         data.append('image', imageInput.files[0]);
@@ -54,5 +51,8 @@ publishForm.addEventListener('submit', e => {
         })
         .catch(function (error) {
             console.log(error.response.data);
+            let errorMsg = error.response.data.errors.image[0];
+            uploadInfo.classList.add('text-red-600');
+            uploadInfo.innerHTML = `${errorMsg} Try again...`;
         });
 });
