@@ -14,22 +14,24 @@ const imageInput = document.querySelector('.tweet-image');
 
 dropZone.addEventListener('dragover', e => {
     e.preventDefault();
-    uploadInfo.classList.add('font-bold');
+    uploadInfo.classList.add('text-green-600');
 });
 
 dropZone.addEventListener('drop', e => {
     e.preventDefault();
 
+    uploadInfo.classList.remove('text-red-600');
+
     if (e.dataTransfer.files.length) {
         imageInput.files = e.dataTransfer.files;
         uploadInfo.innerHTML = 'image uploaded';
-        uploadInfo.classList.remove('font-bold');
+        uploadInfo.classList.remove('text-green-600');
     }
 });
 
 ['dragleave', 'dragend'].forEach(type => {
     dropZone.addEventListener(type, e => {
-        uploadInfo.classList.remove('font-bold');
+        uploadInfo.classList.remove('text-green-600');
     });
 });
 

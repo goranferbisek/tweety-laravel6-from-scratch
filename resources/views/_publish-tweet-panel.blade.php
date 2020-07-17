@@ -4,16 +4,13 @@
 
         <textarea
             name="body"
-            class="w-full drop-zone"
-            placeholder="What's up doc?"
+            class="w-full drop-zone boder-solid border-2 border-gray-100"
+            placeholder="What's on your mind?"
             required
             autofocus
         ></textarea>
-        <div class="flex justify-between">
-            <div class="text-sm text-gray-600 upload-info">
-                drag an image on to the text area (or click)
-            </div>
-            {{-- <img src="avatars/UhKYfEGGsy3btndDncRKd5od81ehJj84KPA2vs9F.jpeg" alt="Uploaded photo" class="w-12"> --}}
+        <div class="text-sm text-center text-gray-600 upload-info">
+            drag an image on to the text area (or click)
         </div>
         <input type="file" name="image" class="hidden tweet-image">
 
