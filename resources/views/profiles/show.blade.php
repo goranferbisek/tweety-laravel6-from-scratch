@@ -40,10 +40,6 @@
         </p>
     </header>
 
-    @if (session('message'))
-        <p>{{ session('message') }}</p>
-    @endif
-
     @include('_timeline', [
         'tweets' => $tweets
     ])
