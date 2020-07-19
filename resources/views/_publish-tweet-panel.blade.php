@@ -10,7 +10,7 @@
             autofocus
         ></textarea>
         <div class="text-sm text-center text-gray-600 upload-info">
-            drag an image on to the text area (or click)
+            drag an image on to the text area
         </div>
         <input type="file" name="image" class="hidden tweet-image">
 
