@@ -29,6 +29,8 @@ class TweetsController extends Controller
 
         Tweet::create($attributes);
 
+        session()->flash('message', 'Your tweet is published!');
+
         return redirect()->route('home');
     }
 
