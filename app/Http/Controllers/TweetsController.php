@@ -9,6 +9,9 @@ class TweetsController extends Controller
 {
     public function index()
     {
+        // reflash because of reloading after ajax request
+        session()->reflash();
+
         return view('tweets.index', [
             'tweets' => auth()->user()->timeline()
         ]);
@@ -28,6 +31,8 @@ class TweetsController extends Controller
         }
 
         Tweet::create($attributes);
+
+        session()->flash('message', 'Your tweet is published!');
 
         return redirect()->route('home');
     }

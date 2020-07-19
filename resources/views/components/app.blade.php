@@ -10,8 +10,15 @@
                     {{ $slot }}
                 </div>
 
-                <div class="lg:w-1/6 bg-gray-200 border border-gray-300 rounded-lg py-4 px-6">
-                    @include ('_friends-list')
+                <div class="flex flex-col justify-between lg:w-1/6 h-full">
+                    <div class="bg-gray-200 border border-gray-300 rounded-lg py-4 px-6">
+                        @include ('_friends-list')
+                    </div>
+                    @if (session('message'))
+                        <div class="bg-green-200 border border-gray-300 rounded-lg py-4 px-6">
+                            <p>{{ session('message') }}</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </main>
