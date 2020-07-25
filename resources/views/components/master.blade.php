@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <!-- makes navigation faster by replacing content of the body with AJAX -->
+    <script src="http://unpkg.com/turbolinks" defer></script>
 </head>
 <body>
     <div id="app">
@@ -29,7 +32,5 @@
 
         {{ $slot }}
     </div>
-    <!-- makes navigation faster by replacing content of the body with AJAX -->
-    <script src="http://unpkg.com/turbolinks"></script>
 </body>
 </html>
