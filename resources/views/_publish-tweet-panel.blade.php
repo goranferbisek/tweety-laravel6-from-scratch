@@ -24,12 +24,17 @@
                 width="50"
                 height="50"
             >
-            <button
+            <div class="flex items-center">
+                <div class="mr-4 counter-div hidden">
+                    <span class="counter">0</span>/140
+                </div>
+                <button
                 type="submit"
                 class="bg-blue-500 hover:bg-blue-600 rounded-lg shadow px-10 text-sm text-white h-10"
-            >
+                >
                 Publish
-            </button>
+                </button>
+            </div>
         </footer>
     </form>
 
