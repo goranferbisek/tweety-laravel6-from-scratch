@@ -1,3 +1,9 @@
+@if (request()->is('tweets'))
+    @push('javascript')
+        <script src="{{ asset('js/tweet-panel.js') }}" defer></script>
+    @endpush
+@endif
+
 @component('components.master')
     <section class="px-8">
         <main class="container mx-auto">

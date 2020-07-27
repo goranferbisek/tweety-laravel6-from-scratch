@@ -37344,47 +37344,7 @@ module.exports = function(module) {
 */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var dropZone = document.querySelector('.drop-zone');
-var publishForm = document.querySelector('#publish-form');
-var uploadInfo = document.querySelector('.upload-info');
-var imageInput = document.querySelector('.tweet-image');
-dropZone.addEventListener('dragover', function (e) {
-  e.preventDefault();
-  uploadInfo.classList.add('text-green-600');
-});
-dropZone.addEventListener('drop', function (e) {
-  e.preventDefault();
-  uploadInfo.classList.remove('text-red-600');
-
-  if (e.dataTransfer.files.length) {
-    imageInput.files = e.dataTransfer.files;
-    uploadInfo.innerHTML = 'image uploaded';
-    uploadInfo.classList.remove('text-green-600');
-  }
-});
-['dragleave', 'dragend'].forEach(function (type) {
-  dropZone.addEventListener(type, function (e) {
-    uploadInfo.classList.remove('text-green-600');
-  });
-});
-publishForm.addEventListener('submit', function (e) {
-  e.preventDefault();
-  var data = new FormData();
-  data.append('body', dropZone.value);
-
-  if (imageInput.files.length) {
-    data.append('image', imageInput.files[0]);
-  }
-
-  axios.post('/tweets', data).then(function (response) {
-    location.reload();
-  })["catch"](function (error) {
-    console.log(error.response.data);
-    var errorMsg = error.response.data.errors.image[0];
-    uploadInfo.classList.add('text-red-600');
-    uploadInfo.innerHTML = "".concat(errorMsg, " Try again...");
-  });
-});
+console.log('app.js loaded');
 
 /***/ }),
 

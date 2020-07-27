@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @stack('javascript')
+    <!-- makes navigation faster by replacing content of the body with AJAX -->
+    <script src="http://unpkg.com/turbolinks" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,8 +22,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-    <!-- makes navigation faster by replacing content of the body with AJAX -->
-    <script src="http://unpkg.com/turbolinks" defer></script>
 </head>
 <body>
     <div id="app">
