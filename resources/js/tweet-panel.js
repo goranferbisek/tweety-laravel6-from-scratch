@@ -1,3 +1,5 @@
+const { max } = require("lodash");
+
 const maxCharacters = 140;
 
 
@@ -57,10 +59,10 @@ publishForm.addEventListener('submit', e => {
 /* CHARACTER COUNT */
 const counterDiv = document.querySelector('.counter-div');
 const counter = document.querySelector('.counter');
+const submitButton = document.querySelector('#publish');
 let charCount;
 
 dropZone.addEventListener('keyup', e => {
-    //e.preventDefault();
     charCount = dropZone.value.length;
     counter.innerText = charCount;
 
@@ -68,5 +70,13 @@ dropZone.addEventListener('keyup', e => {
         counterDiv.classList.remove('hidden');
     } else {
         counterDiv.classList.add('hidden');
+    }
+
+    if (charCount > maxCharacters) {
+        counterDiv.classList.add('text-red-600');
+        submitButton.disabled = true;
+    } else {
+        counterDiv.classList.remove('text-red-600');
+        submitButton.disabled = false;
     }
 });
