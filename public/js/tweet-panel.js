@@ -17322,7 +17322,7 @@ publishForm.addEventListener('submit', function (e) {
 
 var counterDiv = document.querySelector('.counter-div');
 var counter = document.querySelector('.counter');
-var submitButton = document.querySelector('#publish');
+var publishButton = document.querySelector('#publish');
 var charCount;
 dropZone.addEventListener('keyup', function (e) {
   charCount = dropZone.value.length;
@@ -17336,10 +17336,12 @@ dropZone.addEventListener('keyup', function (e) {
 
   if (charCount > maxCharacters) {
     counterDiv.classList.add('text-red-600');
-    submitButton.disabled = true;
+    publishButton.disabled = true;
+    publishButton.classList.add('opacity-50');
   } else {
     counterDiv.classList.remove('text-red-600');
-    submitButton.disabled = false;
+    publishButton.disabled = false;
+    publishButton.classList.remove('opacity-50');
   }
 });
 

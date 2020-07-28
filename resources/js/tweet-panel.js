@@ -31,8 +31,6 @@ dropZone.addEventListener('drop', e => {
     });
 });
 
-
-
 publishForm.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -59,7 +57,7 @@ publishForm.addEventListener('submit', e => {
 /* CHARACTER COUNT */
 const counterDiv = document.querySelector('.counter-div');
 const counter = document.querySelector('.counter');
-const submitButton = document.querySelector('#publish');
+const publishButton = document.querySelector('#publish');
 let charCount;
 
 dropZone.addEventListener('keyup', e => {
@@ -74,9 +72,11 @@ dropZone.addEventListener('keyup', e => {
 
     if (charCount > maxCharacters) {
         counterDiv.classList.add('text-red-600');
-        submitButton.disabled = true;
+        publishButton.disabled = true;
+        publishButton.classList.add('opacity-50');
     } else {
         counterDiv.classList.remove('text-red-600');
-        submitButton.disabled = false;
+        publishButton.disabled = false;
+        publishButton.classList.remove('opacity-50');
     }
 });
