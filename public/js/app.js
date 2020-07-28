@@ -37344,8 +37344,6 @@ module.exports = function(module) {
 */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-console.log('app.js loaded');
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

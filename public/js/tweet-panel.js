@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-console.log('tweet-panel.js loaded');
+var maxCharacters = 140;
 var dropZone = document.querySelector('.drop-zone');
 var publishForm = document.querySelector('#publish-form');
 var uploadInfo = document.querySelector('.upload-info');
@@ -134,6 +134,22 @@ publishForm.addEventListener('submit', function (e) {
     uploadInfo.classList.add('text-red-600');
     uploadInfo.innerHTML = "".concat(errorMsg, " Try again...");
   });
+});
+/* CHARACTER COUNT */
+
+var counterDiv = document.querySelector('.counter-div');
+var counter = document.querySelector('.counter');
+var charCount;
+dropZone.addEventListener('keyup', function (e) {
+  //e.preventDefault();
+  charCount = dropZone.value.length;
+  counter.innerText = charCount;
+
+  if (charCount > 0) {
+    counterDiv.classList.remove('hidden');
+  } else {
+    counterDiv.classList.add('hidden');
+  }
 });
 
 /***/ }),

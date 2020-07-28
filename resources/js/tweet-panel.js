@@ -1,4 +1,5 @@
-console.log('tweet-panel.js loaded');
+const maxCharacters = 140;
+
 
 const dropZone = document.querySelector('.drop-zone');
 const publishForm = document.querySelector('#publish-form');
@@ -50,4 +51,22 @@ publishForm.addEventListener('submit', e => {
             uploadInfo.classList.add('text-red-600');
             uploadInfo.innerHTML = `${errorMsg} Try again...`;
         });
+});
+
+
+/* CHARACTER COUNT */
+const counterDiv = document.querySelector('.counter-div');
+const counter = document.querySelector('.counter');
+let charCount;
+
+dropZone.addEventListener('keyup', e => {
+    //e.preventDefault();
+    charCount = dropZone.value.length;
+    counter.innerText = charCount;
+
+    if (charCount > 0) {
+        counterDiv.classList.remove('hidden');
+    } else {
+        counterDiv.classList.add('hidden');
+    }
 });
